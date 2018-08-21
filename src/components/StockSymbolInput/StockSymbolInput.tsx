@@ -19,7 +19,7 @@ interface IStockSymbolState {
 
 class StockSymbolInput extends React.Component<{}, IStockSymbolState> {
   public state: IStockSymbolState = {
-    Symbol: "msft",
+    Symbol: "gps",
     Days: 7,
     PriceData: [],
     EarningsData: null,
@@ -128,8 +128,12 @@ class StockSymbolInput extends React.Component<{}, IStockSymbolState> {
       const earningsDayIndex = pricesSlice.findIndex(p => p.date.getTime() === d.getTime());
       const dayBeforePrice: IStockPrice = pricesSlice[earningsDayIndex - 1];
       const earningsMove: number = (earningsDayPrice!.high - dayBeforePrice.close) / earningsDayPrice!.high;
-      const weekBeforeMove: number = (dayBeforePrice.close - weekBeforePrice!.open) / dayBeforePrice.close;
-      const weekAfterMove: number = (weekAfterPrice!.close - earningsDayPrice!.open) / weekAfterPrice!.close;
+      const weekBeforeMove: number = weekBeforePrice
+        ? (dayBeforePrice.close - weekBeforePrice!.open) / dayBeforePrice.close
+        : 0;
+      const weekAfterMove: number = weekAfterPrice
+        ? (weekAfterPrice!.close - earningsDayPrice!.open) / weekAfterPrice!.close
+        : 0;
 
       stats.push({
         EarningsDate: d,
