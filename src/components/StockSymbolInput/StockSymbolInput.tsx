@@ -137,9 +137,6 @@ class StockSymbolInput extends React.Component<{}, IStockSymbolState> {
         PercentMoveWeekAfter: weekAfterMove,
         PercentMoveEarningsDay: earningsMove
       });
-
-      console.log(weekBeforePrice);
-      console.log(weekAfterPrice);
     });
 
     this.setState({
