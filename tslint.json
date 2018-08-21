@@ -3,13 +3,12 @@
   "rules": {
     "object-literal-sort-keys": false,
     "no-console": false,
-    "no-debugger": false
+    "no-debugger": false,
+    "import-sources-order": false,
+    "ordered-imports": false,
+    "named-imports-order": false
   },
   "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
-    ]
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts", "coverage/lcov-report/*.js"]
   }
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./App.css";
 
-import StockSymbolInput from "./components/StockSymbolInput";
+import StockSymbolInput from "./components/StockSymbolInput/StockSymbolInput";
 
 class App extends React.Component {
   public render() {
